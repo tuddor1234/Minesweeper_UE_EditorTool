@@ -1,6 +1,6 @@
 #include "STile.h"
 
-#include "GeoTechMinesweeperStyle.h"
+#include "MinesweeperStyle.h"
 
 SLATE_IMPLEMENT_WIDGET(STile)
 void STile::PrivateRegisterAttributes(FSlateAttributeInitializer& AttributeInitializer) {}
@@ -33,7 +33,7 @@ const FSlateBrush* STile::GetBrushByNumBombs() const
 {
 	auto GetBrushByName = [this](const FString& Name)
 	{
-		return FGeoTechMinesweeperStyle::Get().GetBrush(FName(Name));
+		return FMinesweeperStyle::Get().GetBrush(FName(Name));
 	};
 	
 	if (!m_bRevealed)

@@ -8,7 +8,7 @@
 class FToolBarBuilder;
 class FMenuBuilder;
 
-class FGeoTechMinesweeperModule : public IModuleInterface
+class FMinesweeperModule : public IModuleInterface
 {
 public:
 

@@ -5,7 +5,7 @@
 #include "Styling/SlateStyle.h"
 
 /**  */
-class FGeoTechMinesweeperStyle
+class FMinesweeperStyle
 {
 public:
 

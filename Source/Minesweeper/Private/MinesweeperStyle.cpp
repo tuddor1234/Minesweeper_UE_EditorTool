@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "GeoTechMinesweeperStyle.h"
+#include "MinesweeperStyle.h"
 #include "Styling/SlateStyleRegistry.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Slate/SlateGameResources.h"
@@ -9,9 +9,9 @@
 
 #define RootToContentDir Style->RootToContentDir
 
-TSharedPtr<FSlateStyleSet> FGeoTechMinesweeperStyle::StyleInstance = nullptr;
+TSharedPtr<FSlateStyleSet> FMinesweeperStyle::StyleInstance = nullptr;
 
-void FGeoTechMinesweeperStyle::Initialize()
+void FMinesweeperStyle::Initialize()
 {
 	if (!StyleInstance.IsValid())
 	{
@@ -20,28 +20,28 @@ void FGeoTechMinesweeperStyle::Initialize()
 	}
 }
 
-void FGeoTechMinesweeperStyle::Shutdown()
+void FMinesweeperStyle::Shutdown()
 {
 	FSlateStyleRegistry::UnRegisterSlateStyle(*StyleInstance);
 	ensure(StyleInstance.IsUnique());
 	StyleInstance.Reset();
 }
 
-FName FGeoTechMinesweeperStyle::GetStyleSetName()
+FName FMinesweeperStyle::GetStyleSetName()
 {
-	static FName StyleSetName(TEXT("GeoTechMinesweeperStyle"));
+	static FName StyleSetName(TEXT("MinesweeperStyle"));
 	return StyleSetName;
 }
 
 const FVector2D Icon16x16(16.0f, 16.0f);
 const FVector2D Icon20x20(20.0f, 20.0f);
 
-TSharedRef< FSlateStyleSet > FGeoTechMinesweeperStyle::Create()
+TSharedRef< FSlateStyleSet > FMinesweeperStyle::Create()
 {
-	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("GeoTechMinesweeperStyle"));
-	Style->SetContentRoot(IPluginManager::Get().FindPlugin("GeoTechMinesweeper")->GetBaseDir() / TEXT("Resources"));
+	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("MinesweeperStyle"));
+	Style->SetContentRoot(IPluginManager::Get().FindPlugin("Minesweeper")->GetBaseDir() / TEXT("Resources"));
 
-	Style->Set("GeoTechMinesweeper.OpenPluginWindow", new IMAGE_BRUSH_SVG(TEXT("Mine"), Icon20x20));
+	Style->Set("Minesweeper.OpenPluginWindow", new IMAGE_BRUSH_SVG(TEXT("Mine"), Icon20x20));
 	Style->Set("GTM.Mine", new IMAGE_BRUSH_SVG(TEXT("Mine"), Icon20x20));
 	Style->Set("GTM.Default", new IMAGE_BRUSH_SVG(TEXT("Default"), Icon20x20));
 	Style->Set("GTM.0", new IMAGE_BRUSH_SVG(TEXT("Clicked"), Icon20x20));
@@ -58,7 +58,7 @@ TSharedRef< FSlateStyleSet > FGeoTechMinesweeperStyle::Create()
 	return Style;
 }
 
-void FGeoTechMinesweeperStyle::ReloadTextures()
+void FMinesweeperStyle::ReloadTextures()
 {
 	if (FSlateApplication::IsInitialized())
 	{
@@ -66,7 +66,7 @@ void FGeoTechMinesweeperStyle::ReloadTextures()
 	}
 }
 
-const ISlateStyle& FGeoTechMinesweeperStyle::Get()
+const ISlateStyle& FMinesweeperStyle::Get()
 {
 	return *StyleInstance;
 }

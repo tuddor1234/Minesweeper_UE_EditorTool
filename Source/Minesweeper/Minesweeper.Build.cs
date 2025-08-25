@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class GeoTechMinesweeper : ModuleRules
+public class Minesweeper : ModuleRules
 {
-	public GeoTechMinesweeper(ReadOnlyTargetRules Target) : base(Target)
+	public Minesweeper(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
